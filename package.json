@@ -1,0 +1,17 @@
+{
+  "name": "nodeunittest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.1"
+  }
+}
