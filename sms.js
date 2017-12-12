@@ -1,4 +1,4 @@
-const SessionRepo = require('./sessionRespository');
+const SessionRepo = require('./sessionRepository');
 
 class Sms {
     constructor(){
