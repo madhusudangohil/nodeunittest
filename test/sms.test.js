@@ -40,7 +40,7 @@ describe("Sms", function(){
         });
 
         it("should return a sesison object", function(){
-            this.timeout(1000);
+           
             return sms.handleSession("3097501417")
                         .then(r => {
                             console.log(r);
@@ -50,7 +50,7 @@ describe("Sms", function(){
         });
 
          it("should return an error string when session not present", function(){
-            this.timeout(1000);
+           
             return sms.handleSession("1112223333")
                         .catch(e => {
                             console.log(e);

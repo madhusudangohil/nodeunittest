@@ -3,8 +3,7 @@ const sessionRepo = new(require('../sessionRepository'))();
 
 describe("sessionRepository", function(){
     describe("findByPhoneNumber", function(){
-        it("should return a sesison object", function(){
-            this.timeout(5000);
+        it("should return a sesison object", function(){          
             return sessionRepo.findByPhoneNumber("3097501417")
                         .then(r => {
                             console.log(r);
@@ -13,8 +12,7 @@ describe("sessionRepository", function(){
             
         });
 
-         it("should return an error string when session not present", function(){
-            this.timeout(5000);
+         it("should return an error string when session not present", function(){           
             return sessionRepo.findByPhoneNumber("1112223333")
                         .catch(e => {
                             console.log(e);
