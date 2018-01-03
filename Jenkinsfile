@@ -21,7 +21,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        archiveArtifacts 'index.js,sms.js,sessionRepository.js node_modules,package.json'
+        sh 'zip'
       }
     }
   }
