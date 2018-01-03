@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    dockerfile true    
+    dockerfile true
   }
   stages {
     stage('Build') {
@@ -19,6 +19,7 @@ pipeline {
     stage('deploy') {
       steps {
         sh 'zip -r function.zip index.js sms.js node_modules smsRepository.js'
+        s3Upload(acl: 'PublicRead', file: 'function.zip', bucket: 'mg-lambda-deployment', contentType: 'application/x-gzip', workingDir: '.', metadatas: 'Content-Type')
       }
     }
   }
