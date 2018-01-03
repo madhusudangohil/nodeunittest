@@ -2,12 +2,12 @@ pipeline {
   agent {
     docker {
       image 'node:6.10'
-    }
-     environment {
-        npm_config_cache = 'npm-cache'       
-    }
+    }     
   }
   stages {
+    environment {
+        npm_config_cache = 'npm-cache'       
+    }
     stage('Build') {
       steps {
         sh 'npm install'
