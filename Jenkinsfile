@@ -4,11 +4,11 @@ pipeline {
       image 'node:6.10'
     }     
   }
-  stages {
-    environment {
-        npm_config_cache = 'npm-cache'       
-    }
+  stages {    
     stage('Build') {
+      environment {
+        npm_config_cache = 'npm-cache'       
+     }
       steps {
         sh 'npm install'
       }
