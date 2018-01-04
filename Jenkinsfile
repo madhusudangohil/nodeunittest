@@ -19,7 +19,7 @@ pipeline {
     stage('deploy') {
       steps {
         sh 'zip -r function.zip index.js sms.js node_modules smsRepository.js'
-        s3Upload(acl: 'PublicRead', file: 'function.zip', bucket: 'mg-lambda-deployment', contentType: 'application/x-gzip', workingDir: '.', metadatas: 'Content-Type')
+        sh 'aws lambda create-function --function-name blueocean-lambda --zip-file fileb://./function.zip -timeout 30 --role arn:aws:iam::459375513878:role/lambda_bot_execution --handler index.handler  --runtime nodejs6.10 --region us-west-2'
       }
     }
   }
