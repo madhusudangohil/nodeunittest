@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const sessionRepo = new(require('../sessionRepository'))();
+const sessionRepo = new(require('../src/sessionRepository'))();
 
 describe("sessionRepository", function(){
     describe("findByPhoneNumber", function(){

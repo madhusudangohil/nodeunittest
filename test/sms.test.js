@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
-const sms = new(require('../sms'))();
+const sms = new(require('../src/sms'))();
 const sinon = require('sinon');
-const SessionRepo = require('../sessionRepository');
+const SessionRepo = require('../src/sessionRepository');
 
 describe("Sms", function(){
     describe("handleSession", function(){   
