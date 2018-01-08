@@ -15,7 +15,7 @@ npm install'''
     stage('test') {
       steps {
         sh 'npm test'
-        sh 'istanbul report --root coverage --dir report'
+        sh './node_modules/.bin/istanbul report --root coverage --dir report'
       }
     }
     stage('deploy') {
