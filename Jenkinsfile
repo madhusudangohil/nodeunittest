@@ -18,10 +18,7 @@ npm install'''
         sh './node_modules/.bin/istanbul report --root coverage --dir report'
       }
     }
-    stage('sonarScan'){
-     tools {
-        sonarQube 'SonarQube Scanner 3.8'
-      }
+    stage('sonarScan'){     
       steps {
         withSonarQubeEnv('SonarQube Scanner') {
           sh 'sonar-scanner'
