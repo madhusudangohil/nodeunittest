@@ -18,6 +18,11 @@ npm install'''
         sh './node_modules/.bin/istanbul report --root coverage --dir report'
       }
     }
+    stage('sonarScan'){
+      withSonarQubeEnv('mysonarcube') {
+        sh 'echo running scan'
+      }
+    }
     stage('deploy') {
       steps {
         sh 'zip -r function.zip index.js sms.js node_modules smsRepository.js'
