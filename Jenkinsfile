@@ -20,7 +20,7 @@ npm install'''
     }
     stage('sonarScan'){
       tools{
-        sonarQube 'mysonarcube'
+        SonarRunnerInstallation 'mysonarcube'
       }
       steps {
         withSonarQubeEnv('SonarQube Scanner') {
