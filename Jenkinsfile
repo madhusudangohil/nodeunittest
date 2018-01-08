@@ -27,6 +27,7 @@ npm install'''
           sh 'sonar-scanner'
         }
     }
+    }
     stage('deploy') {
       steps {
         sh 'zip -r function.zip index.js sms.js node_modules smsRepository.js'
