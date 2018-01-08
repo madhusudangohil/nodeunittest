@@ -18,7 +18,10 @@ npm install'''
         sh './node_modules/.bin/istanbul report --root coverage --dir report'
       }
     }
-    stage('sonarScan'){     
+    stage('sonarScan'){
+      tools{
+        sonarQube 'mysonarcube'
+      }
       steps {
         withSonarQubeEnv('SonarQube Scanner') {
           sh 'sonar-scanner'
