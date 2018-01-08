@@ -19,9 +19,13 @@ npm install'''
       }
     }
     stage('sonarScan'){
-      withSonarQubeEnv('mysonarcube') {
-        sh 'echo running scan'
+     tools {
+        sonarQube 'SonarQube Scanner 3.8'
       }
+      steps {
+        withSonarQubeEnv('SonarQube Scanner') {
+          sh 'sonar-scanner'
+        }
     }
     stage('deploy') {
       steps {
