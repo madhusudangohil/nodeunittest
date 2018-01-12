@@ -26,7 +26,7 @@ npm install'''
     }
     stage('scan') {
       steps {
-        sh '''which sonar-scanner
+        sh '''/usr/local/sonar-scanner-3.0.3.778/sonar-scanner
 
 '''
       }
