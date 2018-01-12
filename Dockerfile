@@ -23,7 +23,7 @@ RUN export PATH=~/.local/bin:$PATH
 RUN wget --no-cookies --no-check-certificate --header "Cookie:  gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/$filename -O /tmp/$filename --progress=bar:force; \
   mkdir -p /opt/java-oracle && tar -zxf /tmp/$filename -C /opt/java-oracle/;  \
   alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 20000; \
-  alternatives --set java $JAVA_HOME/bin/java; \  
+  alternatives --set java $JAVA_HOME/bin/java;
 
 WORKDIR /usr/local
 RUN curl --insecure -o ./sonarscanner.zip -L  https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/3.0.3.778/sonar-scanner-cli-3.0.3.778.zip
