@@ -23,8 +23,5 @@ RUN rm sonarscanner.zip
 ENV SONAR_RUNNER_HOME=/usr/local/sonar-scanner-3.0.3.778
 ENV PATH $PATH:/usr/local/sonar-scanner-3.0.3.778
 
-COPY sonar-runner.properties ./sonar-scanner-3.0.3.778/conf/sonar-scanner.properties
-
-
 RUN useradd jenkins --shell /bin/bash --create-home
 USER jenkins
