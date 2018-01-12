@@ -26,7 +26,7 @@ npm install'''
     }
     stage('scan') {
       steps {
-        sh '''sh \'sonar-runner\'
+        sh '''sh \'sonar-scanner\'
 
 '''
       }
