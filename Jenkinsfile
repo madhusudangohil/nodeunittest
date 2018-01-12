@@ -25,8 +25,9 @@ npm install'''
     }
     stage('cloudFormation-Deploy') {
       steps {
+        sh '''aws cloudformation delete-stack --stack-name blueocean-lambda --region us-west-2
+'''
         sh 'aws cloudformation create-stack --stack-name blueocean-lambda --template-body file://lambda-cf.yml --region us-west-2'
-        sh 'aws cloudformation delete-stack --stack-name blueocean-lambda --region us-west-2'
       }
     }
     stage('deploy') {
