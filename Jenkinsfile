@@ -25,7 +25,7 @@ npm install'''
     }
     stage('package') {
       steps {
-        sh 'aws s3 cp ./functions.zip s3://mg-lambda-deployment/ --region us-west-2'
+        sh 'aws s3 cp ./function.zip s3://mg-lambda-deployment/ --region us-west-2'
       }
     }
   }
