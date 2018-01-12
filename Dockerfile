@@ -1,8 +1,8 @@
 # Lets not just use any old version but pick one
 FROM node:6.10.3
 
-ENV java_version 1.8.0_51
-ENV filename jdk-8u51-linux-x64.tar.gz
+ENV java_version 1.8.0_151
+ENV filename jdk-8u151-linux-x64.tar.gz
 ENV JAVA_HOME /opt/java-oracle/jdk$java_version
 ENV PATH $JAVA_HOME/bin:$PATH
 
@@ -19,6 +19,13 @@ RUN pip3 install --upgrade pip
 RUN pip3 install awscli
 
 RUN export PATH=~/.local/bin:$PATH
+
+RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz \
+mkdir -p /opt/java-oracle && tar -zxf /tmp/$filename -C /opt/java-oracle/;  \
+alternatives --install /usr/bin/java java  $JAVA_HOME/bin/java 2; \
+alternatives --set java $JAVA_HOME/bin/java;
+
+
 
 WORKDIR /usr/local
 RUN curl --insecure -o ./sonarscanner.zip -L  https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/3.0.3.778/sonar-scanner-cli-3.0.3.778.zip
