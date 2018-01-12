@@ -20,10 +20,11 @@ RUN curl --insecure -o ./sonarscanner.zip -L  https://repo1.maven.org/maven2/org
 RUN unzip sonarscanner.zip
 RUN rm sonarscanner.zip
 
-ENV SONAR_RUNNER_HOME=/usr/local/sonar-scanner-3.0.3.778-linux
-ENV PATH $PATH:/usr/local/sonar-scanner-3.0.3.778-linux/bin
+ENV SONAR_RUNNER_HOME=/usr/local/sonar-scanner-3.0.3.778
+ENV PATH $PATH:/usr/local/sonar-scanner-3.0.3.778
 
-COPY sonar-runner.properties ./sonar-scanner-3.0.3.778-linux/conf/sonar-scanner.properties
+COPY sonar-runner.properties ./sonar-scanner-3.0.3.778/conf/sonar-scanner.properties
+
 
 RUN useradd jenkins --shell /bin/bash --create-home
 USER jenkins
