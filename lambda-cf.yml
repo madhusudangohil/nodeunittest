@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion : '2010-09-09' 
+Description: A Blue Ocean CF Lambda Demo
+Resources: 
+   SimpleLambdaFunction: 
+     Type: AWS::Lambda::Function    
+     Properties:       
+       Handler: index.handler 
+       Runtime: nodejs6.10 
+       Code: 
+         S3Bucket: mg-lambda-deployment
+         S3Key: function.zip 
+       FunctionName: blueocean-cf-lambda-demo
+       Role: arn:aws:iam::459375513878:role/lambda_bot_execution
+       MemorySize: 128
+       Timeout: 30
