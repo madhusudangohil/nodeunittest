@@ -16,10 +16,14 @@ RUN pip3 install awscli
 RUN export PATH=~/.local/bin:$PATH
 
 WORKDIR /usr/local
-RUN wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip && \
-    unzip sonar-runner-dist-2.4.zip && \
-    rm sonar-runner-dist-2.4.zip
-ENV PATH /usr/local/sonar-runner-2.4/bin:$PATH
+RUN curl --insecure -o ./sonarscanner.zip -L  https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/3.0.3.778/sonar-scanner-cli-3.0.3.778.zip
+RUN unzip sonarscanner.zip
+RUN rm sonarscanner.zip
+
+ENV SONAR_RUNNER_HOME=/usr/local/sonar-scanner-3.0.3.778-linux
+ENV PATH $PATH:/usr/local/sonar-scanner-3.0.3.778-linux/bin
+
+COPY sonar-runner.properties ./sonar-scanner-3.0.3.778-linux/conf/sonar-scanner.properties
 
 RUN useradd jenkins --shell /bin/bash --create-home
 USER jenkins
